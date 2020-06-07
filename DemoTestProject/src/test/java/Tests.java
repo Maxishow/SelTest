@@ -23,7 +23,7 @@ public class Tests {
     public void test1() throws InterruptedException {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         driver.get(authorizationPage.getAuthWebUrl());
-        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("braghin", "6785346"); //первый аогумент - логин, второй - пароль
+        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("login", "password"); //первый аогумент - логин, второй - пароль
 
         Assert.assertEquals("Ошибка авторизации в системе", "ПЕРЕХОД В ПОДСИСТЕМЫ",
                 chocolatePageWindow.getStringEnterInSubSystemsText());
@@ -36,7 +36,7 @@ public class Tests {
     public void test2() {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         driver.get(authorizationPage.getAuthWebUrl());
-        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("braghin", "6785346");
+        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("login", "password");
         Assert.assertTrue("Ошибка при создании обращения",chocolatePageWindow.
                 goToClaimPageWindow().
                 toNewBrowserWindow(1).
