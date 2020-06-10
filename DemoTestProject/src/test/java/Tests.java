@@ -36,7 +36,7 @@ public class Tests {
     public void test2() {
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
         driver.get(authorizationPage.getAuthWebUrl());
-        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("login", "password");
+        ChocolatePage chocolatePageWindow = authorizationPage.authorizationInSystem("login", "password"); //первый аогумент - логин, второй - пароль
         Assert.assertTrue("Ошибка при создании обращения",chocolatePageWindow.
                 goToClaimPageWindow().
                 toNewBrowserWindow(1).
@@ -53,6 +53,8 @@ public class Tests {
                 clickOnStreetListButton().
                 selectStreetFromList().saveCreatedClaim().getTextAboutCreatedClaim().equals("Создано входящее обращение"));
         System.out.println("Успешное создание обращения");
+
+        driver.quit();
     }
 }
 
